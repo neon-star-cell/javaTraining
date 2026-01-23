@@ -6,6 +6,7 @@ import java.util.GregorianCalendar;
 import java.util.List;
 
 import com.ibm.oops.payroll.Employee;
+import com.ibm.oops.payroll.Finance;
 import com.ibm.oops.payroll.HR;
 import com.ibm.oops.payroll.PermanentEmployee;
 
@@ -13,14 +14,20 @@ public class Application
 {
 	public static void main( String[] args )
 	{
+		Finance finance = new Finance();
 		Employee emp = HR.recruit("i");
 		if(emp != null) {
-			emp.netPay();
+			finance.processPay(emp);
 		}
 		
 		emp = HR.recruit("p");
 		if(emp != null) {
-			emp.netPay();
+			finance.processPay(emp);
+		}
+		
+		emp = HR.recruit("f");
+		if(emp != null) {
+			finance.processPay(emp);
 		}
 	}
 }

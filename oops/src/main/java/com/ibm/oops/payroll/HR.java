@@ -8,6 +8,8 @@ public class HR {
 		} else if(empType.equalsIgnoreCase("P")) {
 			PermanentEmployee permanentEmployee = new PermanentEmployee();
 			return permanentEmployee;
+		} else if(empType.equalsIgnoreCase("F")) {
+			return new Freelancer();
 		}
 		return null;
 	}

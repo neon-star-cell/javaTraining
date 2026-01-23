@@ -7,5 +7,9 @@ public class PermanentEmployee extends Employee {
 		// TODO Auto-generated method stub
 		System.out.println("Salary");
 	}
+	
+	public void transportation() {
+		System.out.println("Transportation PE");
+	}
 
 }
