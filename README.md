@@ -1,32 +1,32 @@
-# \# javaTraining
+# javaTraining
 
 
 
-\## classobjects
+#### classobjects
 
 * Classes and Objects
 * packages
 
 
 
-\## encapsulation
+#### encapsulation
 
 
 
-\## enums
+#### enums
 
 * declaration
 * methods
 
 
 
-\## FirstApp
+#### FirstApp
 
 * basic java
 
 
 
-\## IBM
+#### IBM
 
 * Arrays
 * static
@@ -34,7 +34,7 @@
 
 
 
-\## oops
+#### oops
 
 * inheritance
 * abstraction
