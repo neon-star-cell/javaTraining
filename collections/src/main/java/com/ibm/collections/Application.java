@@ -1,9 +1,12 @@
 package com.ibm.collections;
 
-import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 
 class Point<T> {
 	private T x;
@@ -33,15 +36,27 @@ class Point<T> {
 
 public class Application { 
 	
-	public Collection<String> getData() {
-		Collection<String> result = new HashSet<>();
+//	public Collection<String> getData() {
+//		Collection<String> result = new HashSet<>();
+//		
+//		result.add("A");
+//		result.add("B");
+//		result.add("C");
+//		result.add("D");
+//		result.add("C");
+//		return result;
+//	}
+	
+	public Map<Integer, String> getData() {
+		Map<Integer, String> map = new HashMap<>();
+		map.put(1, "a");
+		map.put(2, "b");
+		map.put(3, "l");
+		map.put(4, "d");
+		map.put(5, "a");
+		map.put(6, "h");
 		
-		result.add("A");
-		result.add("B");
-		result.add("C");
-		result.add("D");
-		result.add("C");
-		return result;
+		return map;
 	}
 	public static void main(String[] args) {
 //		Point<Float> point1 = new Point<>(2.0f, 2.3f);
@@ -52,14 +67,14 @@ public class Application {
 		
 //		ArrayList<String> arrayList = new ArrayList<String>();
 		Application application = new Application();
-		Collection<String> data = application.getData();
+		Map<Integer, String> data = application.getData();
 		
-		
-		Iterator<String> iterator = data.iterator();
+		Set<Entry<Integer, String>> entrySet = data.entrySet();
+		Iterator<Entry<Integer, String>> iterator = entrySet.iterator();
 		
 		while(iterator.hasNext()) {
-			String text = iterator.next();
-			System.out.println(text);
+			Entry<Integer, String> entry = iterator.next();
+			System.out.println(entry.getKey()+ " --> " + entry.getValue());
 		}
 	}
 }
