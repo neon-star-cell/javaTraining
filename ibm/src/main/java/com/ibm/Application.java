@@ -26,7 +26,9 @@ class Point {
 		return this.distFromPoint(new Point(0, 0));
 	}
 
+	@Override
 	public String toString() {
+		// TODO Auto-generated method stub
 		return "(" + this.x + ", " + this.y + ")";
 	}
 	
