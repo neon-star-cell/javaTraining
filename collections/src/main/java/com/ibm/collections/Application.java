@@ -1,5 +1,8 @@
 package com.ibm.collections;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
 class Point<T> {
 	private T x;
 	private T y;
@@ -28,10 +31,24 @@ class Point<T> {
 
 public class Application { 
 	public static void main(String[] args) {
-		Point<Float> point1 = new Point<>(2.0f, 2.3f);
-		System.out.println(point1.getX() + ", " + point1.getY());
+//		Point<Float> point1 = new Point<>(2.0f, 2.3f);
+//		System.out.println(point1.getX() + ", " + point1.getY());
+//		
+//		Point<Integer> point2 = new Point<>(1, 4);
+//		System.out.println(point2.getX() + ", " + point2.getY());
 		
-		Point<Integer> point2 = new Point<>(1, 4);
-		System.out.println(point2.getX() + ", " + point2.getY());
+		ArrayList<String> arrayList = new ArrayList<String>();
+		arrayList.add("A");
+		arrayList.add("B");
+		arrayList.add("C");
+		arrayList.add("D");
+		arrayList.add("E");
+		
+		Iterator<String> iterator = arrayList.iterator();
+		
+		while(iterator.hasNext()) {
+			String text = iterator.next();
+			System.out.println(text);
+		}
 	}
 }
