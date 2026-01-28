@@ -33,7 +33,7 @@ class Task implements Runnable {
 		System.out.println(new Date());
 		
 		try {
-			Thread.sleep(2000);
+			Thread.sleep(1000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -77,19 +77,27 @@ public class Application
 		
 		int vCPUs = Runtime.getRuntime().availableProcessors();
 		System.out.println(vCPUs);
-		ScheduledExecutorService service = Executors.newScheduledThreadPool(vCPUs);
+//		ScheduledExecutorService service = Executors.newScheduledThreadPool(vCPUs);
 //		ExecutorService service = Executors.newFixedThreadPool(vCPUs);
+		ExecutorService service = Executors.newCachedThreadPool();
 	
 		
-//		for(int counter = 0; counter < 10; counter++) {
-//			service.submit(new Task(counter));
-//		}
+		for(int counter = 0; counter < 10; counter++) {
+			service.submit(new Task(counter));
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 		
-		System.out.println(new Date());
+//		System.out.println(new Date());
 //		service.schedule(new Task(1), 5, TimeUnit.SECONDS);
 		
 //		service.scheduleAtFixedRate(new Task(2), 10, 5, TimeUnit.SECONDS);
-		service.scheduleWithFixedDelay(new Task(3), 10, 5, TimeUnit.SECONDS);
+//		service.scheduleWithFixedDelay(new Task(3), 10, 5, TimeUnit.SECONDS);
+		service.shutdown();
 		System.out.println("The End");
 	}
 }
