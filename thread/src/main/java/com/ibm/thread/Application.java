@@ -1,7 +1,10 @@
 package com.ibm.thread;
 
+import java.util.Date;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 class Runner implements Runnable {
 	@Override
@@ -27,6 +30,7 @@ class Task implements Runnable {
 	public void run() {
 		// TODO Auto-generated method stub
 		System.out.println(Thread.currentThread() + " --> " + count);
+		System.out.println(new Date());
 	}
 }
 
@@ -64,11 +68,18 @@ public class Application
 //		System.out.println(producer.getState());
 //		System.out.println(consumer.getState());
 		
-		ExecutorService service = Executors.newFixedThreadPool(4);
+		int vCPUs = Runtime.getRuntime().availableProcessors();
+		System.out.println(vCPUs);
+		ScheduledExecutorService service = Executors.newScheduledThreadPool(vCPUs);
+//		ExecutorService service = Executors.newFixedThreadPool(vCPUs);
+	
 		
-		for(int counter = 0; counter < 10; counter++) {
-			service.submit(new Task(counter));
-		}
+//		for(int counter = 0; counter < 10; counter++) {
+//			service.submit(new Task(counter));
+//		}
+		
+		System.out.println(new Date());
+		service.schedule(new Task(1), 5, TimeUnit.SECONDS);
 		System.out.println("The End");
 	}
 }
