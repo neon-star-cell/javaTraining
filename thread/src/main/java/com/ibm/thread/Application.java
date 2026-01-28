@@ -9,7 +9,6 @@ import java.util.concurrent.TimeUnit;
 class Runner implements Runnable {
 	@Override
 	public void run() {
-		// TODO Auto-generated method stub
 		System.out.println("The current thread is " + Thread.currentThread());
 //		try {
 //			Thread.sleep(2000);
@@ -87,7 +86,6 @@ public class Application
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
