@@ -31,6 +31,13 @@ class Task implements Runnable {
 		// TODO Auto-generated method stub
 		System.out.println(Thread.currentThread() + " --> " + count);
 		System.out.println(new Date());
+		
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }
 
@@ -79,7 +86,9 @@ public class Application
 //		}
 		
 		System.out.println(new Date());
-		service.schedule(new Task(1), 5, TimeUnit.SECONDS);
+//		service.schedule(new Task(1), 5, TimeUnit.SECONDS);
+		
+		service.scheduleAtFixedRate(new Task(2), 10, 5, TimeUnit.SECONDS);
 		System.out.println("The End");
 	}
 }
