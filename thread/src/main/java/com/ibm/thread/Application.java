@@ -88,7 +88,8 @@ public class Application
 		System.out.println(new Date());
 //		service.schedule(new Task(1), 5, TimeUnit.SECONDS);
 		
-		service.scheduleAtFixedRate(new Task(2), 10, 5, TimeUnit.SECONDS);
+//		service.scheduleAtFixedRate(new Task(2), 10, 5, TimeUnit.SECONDS);
+		service.scheduleWithFixedDelay(new Task(3), 10, 5, TimeUnit.SECONDS);
 		System.out.println("The End");
 	}
 }
