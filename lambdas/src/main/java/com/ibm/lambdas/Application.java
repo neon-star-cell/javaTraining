@@ -42,8 +42,8 @@ public class Application {
 		list.forEach(System.out::println);
 		
 		list.stream()
-		.map(element -> String.valueOf(element))
-		.forEach(System.out::println);
+					.map(element -> String.valueOf(element))
+					.forEach(System.out::println);
 		
 		list.stream()
 					.map(String::valueOf)
