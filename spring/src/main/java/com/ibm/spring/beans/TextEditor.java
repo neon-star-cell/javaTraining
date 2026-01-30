@@ -12,6 +12,14 @@ public class TextEditor {
 		this.spellChecker = spellChecker;
 	}
 	
+	public void init() {
+		System.out.println("Text Editor initialized");
+	}
+	
+	public void destroy() {
+		System.out.println("Text Editor Destroyed");
+	}
+	
 	public void setSpellChecker(SpellChecker spellChecker) {
 		this.spellChecker = spellChecker;
 	}
