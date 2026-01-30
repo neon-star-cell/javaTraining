@@ -8,8 +8,8 @@
            http://www.springframework.org/schema/context
            http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<bean id="textEditor" class="com.ibm.spring.beans.TextEditor">
-		<property name="spellChecker" ref="spellChecker1"></property>
+	<bean id="textEditor" class="com.ibm.spring.beans.TextEditor" autowire="constructor">
+<!-- 		<property name="spellChecker" ref="spellChecker1"></property> -->
 	</bean>
 
 	<bean id="spellChecker1" class="com.ibm.spring.beans.SpellChecker">

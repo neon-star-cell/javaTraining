@@ -1,7 +1,5 @@
 package com.ibm.spring.beans;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 public class TextEditor {
 	private SpellChecker spellChecker;
 
