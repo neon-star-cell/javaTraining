@@ -9,9 +9,13 @@ public interface EmployeeDao {
 
 	int update(Employee e);
 
-	int delete(int id);
+	int delete(Employee e);
 
-	Employee findById(int id);
+	Employee findByEmail(String email);
+	
+	Employee findByPhone(String phone);
+	
+	Employee findById(Integer id);
 
 	List<Employee> findAll();
 }

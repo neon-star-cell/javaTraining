@@ -1,5 +1,7 @@
 package com.ibm.springmvc.controller;
 
+import java.util.Collection;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,13 @@ public class EmployeeController {
 	@Autowired
 	private EmployeeService employeeService;
 	
+	@GetMapping("/")
+	public String listEmployees(Model model) {
+		Collection<Employee> employees = employeeService.findAll();
+		model.addAttribute("employees", employees);
+		return "list-employees";
+	}
+	
 	@GetMapping("/form")
     public String showForm(Model model) {
         model.addAttribute("employee", new Employee());
@@ -35,6 +44,17 @@ public class EmployeeController {
 	    }
 		
 		employeeService.insertEmployee(employee);
+		return "redirect:/";
+	}
+	
+	@PostMapping("/delete")
+	public String deleteEmployee(Integer id, Model model, RedirectAttributes redirectAttributes) {
+		Employee employee = employeeService.findById(id);
+		if(employee == null) {
+			model.addAttribute("message", "Can't find the user.");
+			return "list-employees";
+		}
+		employeeService.deleteEmployee(employee);
 		return "list-employees";
 	}
 }

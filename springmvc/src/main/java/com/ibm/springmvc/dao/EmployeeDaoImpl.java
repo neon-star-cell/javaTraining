@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.ibm.springmvc.mapper.EmployeeRowMapper;
 import com.ibm.springmvc.model.Employee;
 
 @Repository
@@ -16,6 +17,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		this.jdbcTemplate = jdbcTemplate;
 	}
 
+	@Override
 	public int save(Employee e) {
 		return jdbcTemplate.update("INSERT INTO employee(name, phone, email) VALUES (?,?,?)", e.getName(),
 				e.getPhone(), e.getEmail());
@@ -23,26 +25,33 @@ public class EmployeeDaoImpl implements EmployeeDao {
 
 	@Override
 	public int update(Employee e) {
-		// TODO Auto-generated method stub
-		return 0;
+		return jdbcTemplate.update("UPDATE employee SET name=?, phone=?, email=? WHERE email=?", e.getName(),
+				e.getPhone(), e.getEmail(), e.getEmail());
 	}
 
 	@Override
-	public int delete(int id) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int delete(Employee e) {
+		return jdbcTemplate.update("DELETE FROM employee WHERE id=?", e.getId());
+	}
+	
+	@Override
+	public Employee findById(Integer id) {
+		return jdbcTemplate.queryForObject("SELECT * FROM employee WHERE id=?", new EmployeeRowMapper(), id);
 	}
 
 	@Override
-	public Employee findById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Employee findByEmail(String email) {
+		return jdbcTemplate.queryForObject("SELECT * FROM employee WHERE email=?", new EmployeeRowMapper(), email);
+	}
+	
+	@Override
+	public Employee findByPhone(String phone) {
+		return jdbcTemplate.queryForObject("SELECT * FROM employee WHERE phone=?", new EmployeeRowMapper(), phone);
 	}
 
 	@Override
 	public List<Employee> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return jdbcTemplate.query("SELECT * FROM employee", new EmployeeRowMapper());
 	}
 
 }
