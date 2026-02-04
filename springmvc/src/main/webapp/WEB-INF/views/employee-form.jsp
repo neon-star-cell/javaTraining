@@ -9,6 +9,7 @@
 </head>
 <body>
 	<form:form action="save" method="post" modelAttribute="employee">
+		<form:hidden path="id" />
 		<table>
 			<tr>
 				<td>Name:</td>
