@@ -8,11 +8,60 @@
            http://www.springframework.org/schema/context
            http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<bean id="textEditor" class="com.ibm.spring.beans.TextEditor" autowire="constructor" init-method="init" destroy-method="destroy">
-<!-- 		<property name="spellChecker" ref="spellChecker1"></property> -->
-	</bean>
+	<context:annotation-config />
+	<context:component-scan base-package="com.ibm.spring.beans, com.ibm.spring.services" />
+<!-- 	<bean id="textEditor" class="com.ibm.spring.beans.TextEditor"> -->
 
-	<bean id="spellChecker1" class="com.ibm.spring.beans.SpellChecker">
-		<property name="id" value="1" />
+<!-- </bean> -->
+
+<!-- 	<bean id="spellChecker1" class="com.ibm.spring.beans.SpellChecker"> -->
+<!-- 		<property name="id" value="1" /> -->
+<!-- 	</bean> -->
+
+<!-- 	<bean id="spellChecker2" class="com.ibm.spring.beans.SpellChecker"> -->
+<!-- 		<property name="id" value="2" /> -->
+<!-- 	</bean> -->
+
+	<bean id="javaCollection"
+		class="com.ibm.spring.beans.JavaCollection">
+		<property name="addressList">
+			<list>
+				<value>India</value>
+				<value>China</value>
+				<value>Russia</value>
+				<value>Iran</value>
+				<value>Russia</value>
+			</list>
+		</property>
+
+		<property name="addressSet">
+			<set>
+				<value>India</value>
+				<value>China</value>
+				<value>Russia</value>
+				<value>Iran</value>
+				<value>Russia</value>
+			</set>
+		</property>
+
+		<property name="addressMap">
+			<map>
+				<entry key="1" value="India" />
+				<entry key="2" value="China" />
+				<entry key="3" value="Russia" />
+				<entry key="4" value="Iran" />
+				<entry key="5" value="Russia" />
+			</map>
+		</property>
+
+		<property name="addressProp">
+			<props>
+				<prop key="one">India</prop>
+				<prop key="two">China</prop>
+				<prop key="three">Russia</prop>
+				<prop key="four">Iran</prop>
+				<prop key="five">Russia</prop>
+			</props>
+		</property>
 	</bean>
 </beans>

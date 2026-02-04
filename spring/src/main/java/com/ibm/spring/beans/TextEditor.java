@@ -1,5 +1,10 @@
 package com.ibm.spring.beans;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+
+@Component("textEditor")
 public class TextEditor {
 	private SpellChecker spellChecker;
 
@@ -19,7 +24,8 @@ public class TextEditor {
 	public void destroy() {
 		System.out.println("Text Editor Destroyed");
 	}
-	
+
+	@Autowired
 	public void setSpellChecker(SpellChecker spellChecker) {
 		this.spellChecker = spellChecker;
 	}
