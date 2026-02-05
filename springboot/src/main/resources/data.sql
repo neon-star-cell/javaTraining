@@ -1,0 +1,2 @@
+insert into employees(email, first_name, last_name)values('faizal.tiwari@ibm.com', 'faizal', 'tiwari');
+insert into employees(email, first_name, last_name)values('krishna.khan@ibm.com', 'krishna', 'khan');
