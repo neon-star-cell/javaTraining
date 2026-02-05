@@ -1,6 +1,7 @@
 package com.ibm.springboot.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -38,6 +39,11 @@ public class EmployeeController {
 	@GetMapping("/{id}")
 	public ResponseEntity<Employee> getEmployeeById(@PathVariable Long id) {
 		return ResponseEntity.ok(employeeService.getEmployeeById(id));
+	}
+	
+	@GetMapping("/name/{pattern}")
+	public Optional<Employee> getEmployeeByFirstName(@PathVariable String pattern) {
+		return employeeService.findByFirstNameIgnoreCase(pattern);
 	}
 	
 	@PutMapping("/{id}")

@@ -1,14 +1,14 @@
-package com.ibm.springboot.repositories;
+package com.ibm.springdto.repository;
 
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.ibm.springboot.model.Employee;
+import com.ibm.springdto.model.Employee;
 
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee, Long> {
-	Optional<Employee> findByFirstNameIgnoreCase(String pattern);
-	Optional<Employee> findByStartsWithFirstName(String pattern);
+    Optional<Employee> findByEmail(String email);
+    boolean existsByEmail(String email);
 }

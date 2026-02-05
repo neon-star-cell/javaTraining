@@ -1,6 +1,7 @@
 package com.ibm.springboot.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.ibm.springboot.model.Employee;
 
@@ -10,4 +11,6 @@ public interface EmployeeService {
 	public Employee insertEmployee(Employee employee);
 	public Employee updateEmployee(Long id, Employee employeeDetails);
 	public void deleteEmployee(Long id);
+	public Optional<Employee> findByFirstNameIgnoreCase(String pattern);
+	public Optional<Employee> findByStartsWithFirstName(String pattern);
 }

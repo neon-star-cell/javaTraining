@@ -1,6 +1,7 @@
 package com.ibm.springboot.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -44,4 +45,15 @@ public class EmployeeServiceImpl implements EmployeeService{
 	public void deleteEmployee(Long id) {
 		employeeRepository.delete(getEmployeeById(id));
 	}
+
+	@Override
+	public Optional<Employee> findByFirstNameIgnoreCase(String pattern) {
+		return employeeRepository.findByFirstNameIgnoreCase(pattern);
+	}
+
+	@Override
+	public Optional<Employee> findByStartsWithFirstName(String pattern) {
+		return employeeRepository.findByStartsWithFirstName(pattern);
+	}
+
 }
